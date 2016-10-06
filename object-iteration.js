@@ -48,11 +48,11 @@ console.assert( keysOfSample.indexOf(921) < 0 )
 //    ...
 // }
 
-// keyMirror(myActionNames) =>
-// {
+// keyMirror(myActionNames)
+// => {
 //   GET_RECORDS: 'GET_RECORDS',
 //   GET_SINGLE_RECORD: 'GET_SINGLE_RECORD',
-//   CREATE_RECORD: ''
+//   CREATE_RECORD: 'CREATE_RECORD'
 //   ...
 // }
 
