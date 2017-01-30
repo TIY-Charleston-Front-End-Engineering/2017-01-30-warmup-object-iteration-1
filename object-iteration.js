@@ -1,35 +1,42 @@
-// ---------------------------------------
-// EXERCISE 1 : getKeys()
-//  (taking an object and transforming it to another modified object)
-// ---------------------------------------
-// Write a `getKeys` function that takes an object and returns
-// an array of its keys (properties)
+//-----------------------------------------
+// EXERCISE 1 : partyBouncer()
+//   You are having a party where alcohol will be served
+//   and you don't want to let in underage guests or rowdy felons
+//
+//   Take an array of objects, test to see which guests are older than 18
+//   and convert it into an array of strings with the name only.
+//------------------------------------------
 
-var getKeys = function(){
+var listOfPeople = [
+  { name: 'Jimmy Drayfus', age: 16, isFelon: true },
+  { name: 'Sherry Tomkins', age: 33, isFelon: false },
+  { name: 'Romy Podolski', age: 17, isFelon: false },
+  { name: 'Buffy Chang', age: 25, isFelon: true },
+  { name: 'Rufus Johnson', age: 38, isFelon: false },
+  { name: 'Tammy Barkley', age: 20, isFelon: false },
+  { name: 'Harry McCormick', age: 39, isFelon: false},
+  { name: 'Shannon O\'Bannon', age: 31, isFelon: false},
+  { name: 'Greta Irishkov', age: 22, isFelon: false},
+  { name: 'Maria Lewandowski', age: 28, isFelon: true},
+  { name: 'Bobby Francois', age: 28, isFelon: false},
+  { name: 'Salomon Marzococo', age: 14, isFelon: false },
+  { name: 'Ahmad Funchess', age: 44, isFelon: true}
+]
 
-}
 
-var sampleObject = {
-   name: 'Cheech Williams',
-   balance: -420,
-   dob: '01-08-1990',
-   accountFrozen: true,
-   originalBranch: "Dallas - North",
-   signUpDate: "02-14-2002",
-   rewardPoints: 921
-}
+var guestList = partyBouncer(listOfPeople)
 
-var keysOfSample = getKeys(sampleObject)
+console.assert(guestList.length === 6)
+console.assert(guestList[0] === "Sherry Tomkins")
+console.assert(guestList[1] === "Rufus Johnson")
+console.assert(guestList[5] === "Bobby Francois")
 
-//assertion to see that these values are in the array returned to 'keysOfSample'
-console.assert( keysOfSample.indexOf('dob') >= 0 )
-console.assert( keysOfSample.indexOf('originalBranch') >= 0 )
-console.assert( keysOfSample.indexOf('balance') >= 0 )
+console.assert(guestList.indexOf('Jimmy Dreyfus') === -1)
+console.assert(guestList.indexOf('Romy Podolski') === -1)
+console.assert(guestList.indexOf('Ahmad Funchess') === -1)
 
-//this assertion checks that these values are NOT in `keysOfSample`
-console.assert( keysOfSample.indexOf('Cheech Williams') < 0 )
-console.assert( keysOfSample.indexOf('Dallas - North') < 0 )
-console.assert( keysOfSample.indexOf(921) < 0 )
+
+
 
 
 // ---------------------------------------
@@ -68,6 +75,8 @@ var myActionNames = {
 var actionNamesIndex = keyMirror(myActionNames)
 
 console.assert(actionNamesIndex.GET_RECORDS === 'GET_RECORDS')
+console.assert(actionNamesIndex.UPDATE_RECORD === 'UPDATE_RECORD')
+// -------------------------------------------
 console.assert(typeof actionNamesIndex.GET_records === 'undefined')
 console.assert(actionNamesIndex.CREATE_RECORD !== 'Create_Record')
 console.assert(actionNamesIndex.update_record !== 'UPDATE_RECORD')
